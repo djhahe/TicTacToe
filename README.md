@@ -3,6 +3,10 @@
 
 A React implementation of Tic Tac Toe for two players.
 
+## Demo
+
+Live demo: [djhahe.github.io](http://djhahe.github.io)
+
 To run the examples locally, run:
 
 ```
