@@ -25,6 +25,7 @@ class Setting extends React.Component {
         }
     }
 
+
     handleSaveSettingClick = (e) => {
         e.preventDefault();
         this.props.handleSaveSettingClick(this.getSetting());
@@ -81,7 +82,6 @@ class Setting extends React.Component {
                             required />
                     </div>
                 </div>
-                <button type="submit" className="btn" onClick={this.props.handleSubmit}>Save</button>
             </form>
         )
     }
@@ -95,7 +95,7 @@ class Setting extends React.Component {
                 <Modal isOpen={this.props.gameSetting.openStatus}
                     modalContent={this.renderSettingContent()}
                     handleCloseModal={this.props.handleCloseSetting}
-                    handleSubmit={this.handleSaveSettingClick} />
+                    formId="settingForm" />
             </div>
         );
     }

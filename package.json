@@ -12,8 +12,7 @@
   },
   "author": "kenny.nguyen",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
