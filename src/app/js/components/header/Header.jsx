@@ -4,7 +4,6 @@ class Header extends React.Component {
     render() {
         return (
             <div className="header">
-                <link rel="icon" href={this.props.gameInfo.favicon} />
                 <title>
                     {this.props.gameInfo.name}
                 </title>
