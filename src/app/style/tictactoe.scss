@@ -1,0 +1,161 @@
+@import 'ResetCss';
+@import 'templatelayout.scss';
+@import 'common.scss';
+.main {
+    background: url('../image/bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: cursive;
+    height: 100%;
+    width: 100%;
+    @include flex-layout-direction-align(column,
+    center);
+    .hidden {
+        display: none;
+    }
+    .header {
+        flex: 15%;
+        padding-top: 25;
+        @include flex-layout-direction-align(column,
+        center);
+        .name {
+            font-size: 60;
+        }
+        .rule {
+            padding-top: 30px;
+            font-size: 18;
+            .number-to-win{
+                font-style:italic;
+                text-decoration: underline;
+                font-weight: bold;
+                color: #27a031;
+            }
+        }
+        
+    }
+    .setting {
+        cursor: pointer;
+    }
+    .setting:hover {
+        color: #8a8a8a
+    }
+    .setting:before {
+        content: "";
+        display: inline-block;
+        background: url('../image/setting.png') center/contain no-repeat;
+        width: 15px;
+        height: 15px;
+        margin-top: 15px;
+    }
+    .board {
+        @include flex-layout-direction-align(column,
+        center);
+        flex: 50%;
+        .row {
+            display: flex;
+            width: 400px;
+            .X {
+                background: url('../image/x-symbol.png') center/50% 50% no-repeat;
+            }
+            .O {
+                background: url('../image/o-symbol.png') center/50% 50% no-repeat;
+            }
+            border-top: 3px solid #27a031;
+            .cell {
+                @include flex-layout-direction-align(column,
+                center);
+                width: 33.333%;
+                border-right: 3px solid #27a031;
+                cursor: pointer;
+            }
+            .cell:after {
+                content: '';
+                display: block;
+                margin-top: 100%;
+            }
+            .cell:last-of-type {
+                border-right: transparent;
+            }
+        }
+        .row:first-of-type {
+            border-top: transparent;
+        }
+    }
+    .footer {
+        font-size: 20;
+        text-align: center;
+        flex: 20%;
+        .status {
+            padding: 25 0 25 0;
+        }
+        .status-end {
+            padding: 25 0 25 0;
+            color: red;
+        }
+        .result {
+            padding-bottom: 25;
+            .tblResult {
+                width: 100%;
+                height: 50px;
+                td {
+                    text-align: center;
+                    vertical-align: middle;
+                }
+            }
+        }
+        .playagain {
+            width: 200px;
+        }
+    }
+    .history-content {
+        position: absolute;
+        top: 270px;
+        right: 200px;
+        height: 400px;
+        
+        .history{
+            height: inherit;
+            overflow: auto;
+            .history-line {
+                padding: 5;
+            }
+        }
+    }
+}
+
+form {
+    @include flex-layout-direction-align(column,center);
+    padding: 30 30 0 30;
+    .setting-content {
+        display: flex;
+        .setting-label {
+            @include flex-layout-direction(column);
+            flex: 50%;
+            text-align: right;
+            div {
+                margin: 20 0;
+            }
+        }
+        .setting-input {
+            flex: 50%;
+            @include flex-layout-direction(column);
+            input {
+                width: 70px;
+                margin: 20px;
+                border: none;
+                border-bottom: 1px solid #776969;
+                background-color: #ffffff00;
+                text-align: center;
+            }
+        }
+    }
+    .save {
+        margin-top: 20px;
+    }
+}
+
+.game-status {
+    padding: 30 30 0 30;
+    @include flex-layout-direction-align(column,
+    center);
+}

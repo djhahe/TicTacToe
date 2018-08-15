@@ -1,0 +1,14 @@
+%flex-layout {
+    display: flex;
+}
+
+@mixin flex-layout-direction($direction) {
+    @extend %flex-layout;
+    flex-direction: $direction;
+}
+
+@mixin flex-layout-direction-align($direction, $align) {
+    @include flex-layout-direction($direction);
+    justify-content: $align;
+    align-items: $align;
+}

@@ -1,0 +1,54 @@
+@import 'templatelayout.scss';
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 330px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(10, 10, 10, 0.2);
+    /* Modal Content */
+    .modal-content {
+        background-color: #f6fffbc7;
+        border-radius: 6px;
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin: auto;
+        padding: 10 10 20 20;
+        border: 1px solid #888;
+        width: 360px;
+        .close {
+            color: #000000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: rgb(189, 45, 45);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-button {
+            @include flex-layout-direction-align(row, center);
+        }
+    }
+}
+
+.btn {
+    border: 2px solid rgb(49, 47, 47);
+    border-radius: 6px;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    font-family: inherit;
+    padding: 5;
+    margin: 10;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #c3ccc3;
+}
