@@ -16,7 +16,6 @@ class TicTacToe extends React.Component {
         this.tictactoeUtility = new TicTacToeUtility();
         this.gameInfo = {
             name: 'Tic Tac Toe',
-            favicon: TicTacToeFavicon,
             boardSizeLimit: {
                 minRows: 3,
                 maxRows: 15,
