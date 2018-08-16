@@ -1,33 +1,27 @@
 import React from 'react';
 import Cell from 'Cell';
 
-class Board extends React.Component {
+const Board = ({ boardSize, cells, onClick }) => {
+    const renderCell = (i) => <Cell key={i} cell={cells[i]} onClick={() => onClick(i)} />
 
-    renderCell(i) {
-        return <Cell key={i} value={this.props.cells[i]} onClick={() => this.props.onClick(i)} />
-    }
-
-    createBoard() {
-        const boardSize = this.props.boardSize;
+    const renderBoard = () => {
         var rows = Array(boardSize.rows).fill(null);
         var cols = Array(boardSize.cols).fill(null);
 
         return rows.map((row, i) => {
-            const cells = cols.map((col, j) => {
+            const boardCells = cols.map((col, j) => {
                 const cellKey = i * boardSize.cols + j;
-                return this.renderCell(cellKey);
+                return renderCell(cellKey);
             });
-            return <div className="row" key={i}>{cells}</div>
+            return <div className="row" key={i}>{boardCells}</div>
         });
     }
 
-    render() {
-        return (
-            <div className="board">
-                {this.createBoard()}
-            </div>
-        );
-    }
+    return (
+        <div className="board">
+            {renderBoard()}
+        </div>
+    );
 }
 
 export default Board

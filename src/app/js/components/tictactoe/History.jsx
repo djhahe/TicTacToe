@@ -1,29 +1,27 @@
 import React from 'react';
 
-class History extends React.Component {
+const History = ({ history, handleStepClick }) => {
 
-    renderHistory() {
-        return this.props.history.map((step, move) => {
+    const HistoryLine = ({move,desc}) => <div href="#" className="history-line" onClick={() => handleStepClick(move)} >{desc}</div>
+
+    const renderHistory = () => {
+        return history.map((step, move) => {
             const desc = move ? 'Go to move #' + move :
                 'Go to game start';
             return (
-                <div key={move} className="history-line">
-                    <a href="#" onClick={() => this.props.handleStepClick(move)} >{desc}</a>
-                </div>
+                <HistoryLine key={move}  move={move} desc={desc} />
             );
         })
     }
 
-    render() {
-        return (
-            <div className="history-content">
-                <div>History</div>
-                <div className="history">
-                    {this.renderHistory()}
-                </div>
+    return (
+        <div className="history-content">
+            <div>History</div>
+            <div className="history">
+                {renderHistory()}
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default History

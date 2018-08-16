@@ -2,18 +2,18 @@ import React from 'react';
 import Modal from 'Modal';
 
 class Setting extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             rows: 0,
             cols: 0,
-            numberToWin:0
+            numberToWin: 0
         }
     }
-    
-    componentWillReceiveProps(nextProps){
+
+    componentWillReceiveProps(nextProps) {
         if (nextProps.gameSetting.boardSize.rows !== this.props.rows) {
-          this.setState({ rows: nextProps.gameSetting.boardSize.rows })
+            this.setState({ rows: nextProps.gameSetting.boardSize.rows })
         }
 
         if (nextProps.gameSetting.boardSize.cols !== this.props.cols) {
@@ -21,7 +21,7 @@ class Setting extends React.Component {
         }
 
         if (nextProps.gameSetting.rules.numberToWin !== this.props.numberToWin) {
-        this.setState({ numberToWin: nextProps.gameSetting.rules.numberToWin })
+            this.setState({ numberToWin: nextProps.gameSetting.rules.numberToWin })
         }
     }
 
@@ -31,11 +31,11 @@ class Setting extends React.Component {
         this.props.handleSaveSettingClick(this.getSetting());
     }
 
-    handleUserInput = (e) =>{
+    handleUserInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
         this.setState({
-            [name] : Number(value)
+            [name]: Number(value)
         })
     }
 
@@ -47,10 +47,10 @@ class Setting extends React.Component {
         newSetting.openStatus = false;
         return newSetting;
     }
-    calculateMunberToWinBoundary(){
+    calculateMunberToWinBoundary() {
         return {
-            min : Math.min(this.props.gameInfo.boardSizeLimit.minRows,this.props.gameInfo.boardSizeLimit.minCols),
-            max : Math.max(this.state.rows,this.state.cols),
+            min: Math.min(this.props.gameInfo.boardSizeLimit.minRows, this.props.gameInfo.boardSizeLimit.minCols),
+            max: Math.max(this.state.rows, this.state.cols),
         }
     }
 
@@ -67,17 +67,17 @@ class Setting extends React.Component {
                     <div className="setting-input">
                         <input type="number" name='rows' min={this.props.gameInfo.boardSizeLimit.minRows} max={this.props.gameInfo.boardSizeLimit.maxRows}
                             placeholder={this.props.gameInfo.boardSizeLimit.minRows + " - " + this.props.gameInfo.boardSizeLimit.maxRows}
-                            value={this.state.rows} 
+                            value={this.state.rows}
                             onChange={this.handleUserInput}
                             required />
                         <input type="number" name='cols' min={this.props.gameInfo.boardSizeLimit.minCols} max={this.props.gameInfo.boardSizeLimit.maxCols}
                             placeholder={this.props.gameInfo.boardSizeLimit.minCols + " - " + this.props.gameInfo.boardSizeLimit.maxCols}
-                            value={this.state.cols} 
+                            value={this.state.cols}
                             onChange={this.handleUserInput}
                             required />
                         <input type="number" name='numberToWin' min={numberToWinBoundary.min} max={numberToWinBoundary.max}
                             placeholder={numberToWinBoundary.min + " - " + numberToWinBoundary.max}
-                            value={this.state.numberToWin} 
+                            value={this.state.numberToWin}
                             onChange={this.handleUserInput}
                             required />
                     </div>

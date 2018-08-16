@@ -1,29 +1,21 @@
 import React from 'react';
 
-class Modal extends React.Component {
+const Modal = ({ isOpen, handleCloseModal, formId, modalContent }) => {
 
-    renderSubmitButton() {
-        if (this.props.formId) {
-            return (
-                <button type="submit" form={this.props.formId} className="btn" >Save</button>
-            )
-        }
-    }
-
-    render() {
-        return (
-            <div className={this.props.isOpen ? "modal" : "hidden"}>
-                <div className="modal-content">
-                    <span className="close" onClick={this.props.handleCloseModal} >&times;</span>
-                    {this.props.modalContent}
-                    <div className="modal-button">
-                        {this.renderSubmitButton()}
-                        <button  className="btn" onClick={this.props.handleCloseModal}>Close</button>
-                    </div>
+    const renderSubmitButton = () => formId ? <button type="submit" form={formId} className="btn" >Save</button> : null;
+    return (
+        <div className={isOpen ? "modal" : "hidden"}>
+            <div className="modal-content">
+                <span className="close" onClick={handleCloseModal} >&times;</span>
+                {modalContent}
+                <div className="modal-button">
+                    {renderSubmitButton()}
+                    <button className="btn" onClick={handleCloseModal}>Close</button>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
+
 
 export default Modal
