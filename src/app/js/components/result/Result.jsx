@@ -6,7 +6,6 @@ const ResultContent = ({ result, header }) => <td >{result[header]}</td>
 const Result = ({ result }) => {
     const renderResultHeader = () => {
         return Object.keys(result).map((header) => {
-            debugger;
             return <ResultHeader key={header} header={header} />
         })
     }
