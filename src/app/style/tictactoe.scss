@@ -118,6 +118,9 @@
             overflow: auto;
             .history-line {
                 padding: 5;
+                color: #27a031;
+                cursor: pointer;
+                text-decoration: underline;
             }
         }
     }
