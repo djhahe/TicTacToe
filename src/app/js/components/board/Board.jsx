@@ -1,5 +1,5 @@
 import React from 'react';
-import Cell from 'Cell';
+import Cell from './Cell.jsx';
 
 const Board = ({ boardSize, cells, onClick }) => {
     const renderCell = (i) => <Cell key={i} cell={cells[i]} onClick={() => onClick(i)} />

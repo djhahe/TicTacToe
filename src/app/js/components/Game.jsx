@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import TicTacToe from 'TicTacToe';
+import TicTacToe from './tictactoe/TicTacToe.jsx';
 
 const Game = () => <TicTacToe />
 

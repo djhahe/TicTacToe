@@ -24,14 +24,13 @@
         .rule {
             padding-top: 30px;
             font-size: 18;
-            .number-to-win{
-                font-style:italic;
+            .number-to-win {
+                font-style: italic;
                 text-decoration: underline;
                 font-weight: bold;
                 color: #27a031;
             }
         }
-        
     }
     .setting {
         cursor: pointer;
@@ -112,8 +111,7 @@
         top: 270px;
         right: 200px;
         height: 400px;
-        
-        .history{
+        .history {
             height: inherit;
             overflow: auto;
             .history-line {
@@ -127,7 +125,8 @@
 }
 
 form {
-    @include flex-layout-direction-align(column,center);
+    @include flex-layout-direction-align(column,
+    center);
     padding: 30 30 0 30;
     .setting-content {
         display: flex;

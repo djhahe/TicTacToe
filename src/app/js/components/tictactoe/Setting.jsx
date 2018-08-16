@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'Modal';
+import Modal from '../common/Modal.jsx';
 
 class Setting extends React.Component {
     constructor(props) {
@@ -24,7 +24,6 @@ class Setting extends React.Component {
             this.setState({ numberToWin: nextProps.gameSetting.rules.numberToWin })
         }
     }
-
 
     handleSaveSettingClick = (e) => {
         e.preventDefault();
@@ -56,6 +55,11 @@ class Setting extends React.Component {
 
     renderSettingContent() {
         let numberToWinBoundary = this.calculateMunberToWinBoundary();
+        const minRows = this.props.gameInfo.boardSizeLimit.minRows;
+        const maxRows = this.props.gameInfo.boardSizeLimit.maxRows;
+        const minCols = this.props.gameInfo.boardSizeLimit.minCols;
+        const maxCols = this.props.gameInfo.boardSizeLimit.maxCols;
+
         return (
             <form onSubmit={this.handleSaveSettingClick} id="settingForm">
                 <div className="setting-content">
@@ -65,13 +69,13 @@ class Setting extends React.Component {
                         <div>Number to Win:</div>
                     </div>
                     <div className="setting-input">
-                        <input type="number" name='rows' min={this.props.gameInfo.boardSizeLimit.minRows} max={this.props.gameInfo.boardSizeLimit.maxRows}
-                            placeholder={this.props.gameInfo.boardSizeLimit.minRows + " - " + this.props.gameInfo.boardSizeLimit.maxRows}
+                        <input type="number" name='rows' min={minRows} max={maxRows}
+                            placeholder={minRows + " - " + maxRows}
                             value={this.state.rows}
                             onChange={this.handleUserInput}
                             required />
-                        <input type="number" name='cols' min={this.props.gameInfo.boardSizeLimit.minCols} max={this.props.gameInfo.boardSizeLimit.maxCols}
-                            placeholder={this.props.gameInfo.boardSizeLimit.minCols + " - " + this.props.gameInfo.boardSizeLimit.maxCols}
+                        <input type="number" name='cols' min={minCols} max={maxCols}
+                            placeholder={minCols + " - " + maxCols}
                             value={this.state.cols}
                             onChange={this.handleUserInput}
                             required />
@@ -80,6 +84,9 @@ class Setting extends React.Component {
                             value={this.state.numberToWin}
                             onChange={this.handleUserInput}
                             required />
+                    </div>
+                    <div className="setting-limit">
+
                     </div>
                 </div>
             </form>

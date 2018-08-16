@@ -15,22 +15,6 @@ var config = {
     filename: 'js/app.js',
     sourceMapFilename: 'app.map'
   },
-  resolve: {
-    alias : {
-      TicTacToe : path.resolve(APP_DIR,'js/components/tictactoe/TicTacToe.jsx'),
-      History : path.resolve(APP_DIR,'js/components/tictactoe/History.jsx'),
-      Result : path.resolve(APP_DIR,'js/components/result/Result.jsx'),
-      Header : path.resolve(APP_DIR,'js/components/header/Header.jsx'),
-      Board : path.resolve(APP_DIR,'js/components/board/Board.jsx'),
-      Cell : path.resolve(APP_DIR,'js/components/board/Cell.jsx'),
-      Modal : path.resolve(APP_DIR,'js/components/common/Modal.jsx'),
-      Setting : path.resolve(APP_DIR,'js/components/tictactoe/Setting.jsx'),
-      TicTacToeStyle: path.resolve(APP_DIR,'style/tictactoe.scss'),
-      TicTacToeFavicon : path.resolve(APP_DIR,'image/tictactoeicon.png'),
-      ResetCss: path.resolve(APP_DIR,'style/_resetcss.scss'),
-      
-    }
-  },
   module : {
     rules: [
       {

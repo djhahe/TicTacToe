@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = ({ gameInfo, rule }) => {
+const GameInfo = ({ gameInfo, rule }) => {
     return (
         <div className="header">
             <title>
@@ -14,4 +14,4 @@ const Header = ({ gameInfo, rule }) => {
     )
 }
 
-export default Header
+export default GameInfo
