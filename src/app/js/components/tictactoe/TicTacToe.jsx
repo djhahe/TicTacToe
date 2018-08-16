@@ -6,8 +6,8 @@ import History from './History.jsx';
 import GameStatus from '../result/GameStatus.jsx';
 import Result from '../result/Result.jsx';
 import TicTacToeUtility from '../../utility/tictactoe/TicTacToeUtility.jsx'
-import 'TicTacToeStyle';
-import TicTacToeFavicon from 'TicTacToeFavicon';
+import '../../../style/tictactoe.scss';
+
 
 class TicTacToe extends React.Component {
 
