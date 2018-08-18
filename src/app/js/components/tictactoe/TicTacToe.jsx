@@ -67,15 +67,15 @@ class TicTacToe extends React.Component {
     handleCellClick = (i) => {
         const history = this.state.history.slice(0, this.state.stepCount + 1);
         const current = history[history.length - 1];
-
-        var newCells = [...(current.cells)];
+        let newCells = [...(current.cells)];
         if (newCells[i] || this.state.hasWinner) {
             return;
         }
 
-        var stepCount = ++this.state.stepCount;
-        newCells[i] = this.state.isXNext ? 'X' : 'O';
-        var winner = this.tictactoeUtility.checkWinner(newCells, stepCount, i, this.state.gameSetting);
+        let stepCount = ++this.state.stepCount;
+        let currentMove = this.state.isXNext ? 'X' : 'O';
+        newCells[i] = currentMove;
+        const winner = this.tictactoeUtility.checkWinner(newCells, stepCount, i, this.state.gameSetting);
 
         if (!winner) {
             this.setState({
@@ -84,9 +84,15 @@ class TicTacToe extends React.Component {
                 stepCount: stepCount
             });
         } else {
+            if(Array.isArray(winner)){
+                newCells = this.tictactoeUtility.markWinRow(winner,newCells);
+            } else{
+                currentMove = "Tie";
+            }
+
             this.setState({
-                result: this.tictactoeUtility.calculateResult(winner, this.state.result),
-                hasWinner: winner,
+                result: this.tictactoeUtility.calculateResult(currentMove, this.state.result),
+                hasWinner: currentMove,
                 winnerNotification: true,
                 history: [...history, { cells: newCells }]
             })

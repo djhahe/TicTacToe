@@ -86,7 +86,9 @@ class Setting extends React.Component {
                             required />
                     </div>
                     <div className="setting-limit">
-
+                        <div>({minRows} - {maxRows})</div>
+                        <div>({minCols} - {maxCols})</div>
+                        <div>({numberToWinBoundary.min} - {numberToWinBoundary.max})</div>
                     </div>
                 </div>
             </form>

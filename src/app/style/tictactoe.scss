@@ -59,6 +59,12 @@
             .O {
                 background: url('../image/o-symbol.png') center/50% 50% no-repeat;
             }
+            .Xw {
+                background: url('../image/x-symbol-w.png') center/50% 50% no-repeat;
+            }
+            .Ow {
+                background: url('../image/o-symbol-w.png') center/50% 50% no-repeat;
+            }
             border-top: 3px solid #27a031;
             .cell {
                 @include flex-layout-direction-align(column,
@@ -148,6 +154,15 @@ form {
                 border-bottom: 1px solid #776969;
                 background-color: #ffffff00;
                 text-align: center;
+            }
+        }
+        .setting-limit {
+            @include flex-layout-direction(column);
+            flex: 50%;
+            text-align: left;
+            font-size: 11;
+            div {
+                margin: 25 0;
             }
         }
     }
