@@ -1,8 +1,28 @@
 #react-tic-tac-toe
 =================
 ## Gameplay and Functional
+#### 1. Gameplay
+A React implementation of Tic Tac Toe for two players. First palyer move with X, second player move with O. The game end when one met the win condition.
+#### 2. Setting
+User can setup board size and condition to win in setting dialog. 
+#### 3. History
+The application also kept track the state of the game while playing, then show up the history when game ended. User can click history line to watch their move.
+#### 4. Play new game
+User can click "Play again" button to start a new game
+#### 5. Winner alert and highlight win row
+When game ended, an alert shown up the winner and highlighted win row
 
-A React implementation of Tic Tac Toe for two players. First palyer move with X, second player move with O. The game end when one met the win condition. User can setup board size and condition to win in setting dialog. The application also kept track the state of the game while playing, then show up the history when game ended. User can click history line to watch their move.
+
+
+## Code, struture and components
+#### 1. Code
+* The code using ES6/JSX syntax.
+* Using webpack to bundle.
+* Style with scss
+#### 2. Struture
+
+#### 3. Components
+
 
 ## Algorithm
 
@@ -17,7 +37,6 @@ Array[row * cols]
 ```
 
 
-## Components and struture
 
 ## Demo and deployment
 
