@@ -2,7 +2,7 @@
 =================
 ## Gameplay and Functional
 #### 1. Gameplay
-A React implementation of Tic Tac Toe for two players. First palyer move with X, second player move with O. The game end when one met the win condition.
+A React implementation of Tic Tac Toe for two players. First palyer move with X, second player move with O. The game end when one met the win condition or all cells were fullfill.
 #### 2. Setting
 User can setup board size and condition to win in setting dialog. 
 #### 3. History
