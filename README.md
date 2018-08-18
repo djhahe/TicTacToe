@@ -1,39 +1,42 @@
 #react-tic-tac-toe
 =================
+
 ## Gameplay and Functional
+![TicTacToe](https://github.com/djhahe/Image-Store/blob/master/Tictactoe/game.JPG)
 #### 1. Gameplay
-A React implementation of Tic Tac Toe for two players. First player moves with X, second player moves with O. The game end when one met the win condition, or all cell were fulfilled.
+A React implementation of Tic Tac Toe for two players. First player moves with **X**, second player moves with **O**. The game end when one met the win condition, or all cell were fulfilled.
 #### 2. Setting
 User can setup board size and condition to win in setting dialog. 
 #### 3. History
 The application also kept track the state of the game while playing, then show up the history when game ended. User can click history line to watch their move.
 #### 4. Play new game
-User can click "Play again" button to start a new game
+User can click "Play again" button to start a new game.
 #### 5. Winner alert and highlight win row
-When game ended, an alert shown up the winner and highlighted win row
+When game ended, an alert shown up the winner and highlighted win row.
 #### 6. Display score board
-Display score board for multiple game
+Display score board for all games.
 
 
 ## Code, structure and components
 #### 1. Code
 * The code using ES6/JSX syntax.
-* Using webpack for bundling and minifaction.
-* Style with scss
+* Using webpack for bundling and minifaction. (Most powerful 
+* Style with scss( can use variables, nesting, mixins. Make code clean, clear and reusable) 
 #### 2. Structure
-* Source code store in src folder
-
+![TicTacToe](https://github.com/djhahe/Image-Store/blob/master/Tictactoe/structure.JPG)
+* Source code and asset store in src folder
+* js folder contain react component and helper classes.
 
 #### 3. Components
 Base on single repository principle and think react, I tried to split all component to small component and can be reusable and group by their relationship. 
 ######  3.1 GameInfo 
-GameInfo component: Display game information like name, rule.
+GameInfo component: Show game information like name, rule.
 ###### 3.2 Board 
-* Board component: 
-* Cell component:
+* Board component: Render according cell base on  board size 
+* Cell component: handle user's moving and show **X** or **O** symbol
 ###### 3.3 TicTacToe 
 1. TicTactoe component
-* Store all states of the TicTacToe game
+* Store all states of the TicTacToe game and pass to render board, display game information, history, game status, result and score board
 2. History component
 * To display list of moving historical of the game. The history only displays when game ended
 3. Setting component
@@ -56,7 +59,7 @@ Array[row * cols]
 6,7,8]
 ```
 
-First X move
+First **X** move
 
 ```
 [0,1,2,
@@ -64,7 +67,7 @@ First X move
 6,7,8]
 ```
 
-Second O move 
+Second **O** move 
 
 ```
 [0,1,2,
