@@ -72,7 +72,7 @@ Second **O** move
 <pre>
 [0,1,2,
  3,<b>X</b>,5,
- <b>0</b>,7,8]
+ <b>O</b>,7,8]
 </pre>
 
 Winner check Algorithm
