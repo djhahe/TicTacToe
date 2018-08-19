@@ -61,29 +61,29 @@ Array[row * cols]
 
 First **X** move
 
-```
+<pre>
 [0,1,2,
-3,X,5,
+3,<b>X</b>,5,
 6,7,8]
-```
+</pre>
 
 Second **O** move 
 
-```
+<pre>
 [0,1,2,
-3,X,5,
-0,7,8]
-```
+3,<b>X</b>,5,
+<b>0</b>,7,8]
+</pre>
 
 Winner check Algorithm
 
 Instead of looping all rows, columns, diagonal I start from the current move position and loop around its rows, columns and diagonal. If not enough continuous X or O symbol met the win condition and all cell were fulfilled, game will end with "Tie" status.
 
-```
-[0,1,X,
-3,X,5,
-O,7,8]
-```
+<pre>
+[<b>0</b>,<b>1</b>,<b>2</b>,
+3,<b>X</b>,5,
+<b>6</b>,<b>7</b>,<b>8</b>]
+</pre>
 
 ## Demo and deployment
 
