@@ -1,69 +1,55 @@
 class TicTacToeUtility {
 
-    calculateRowBoundary(cells, posistion, gameSetting) {
-        for (var i = (gameSetting.boardSize.cols - 1); i < cells.length; i = i + gameSetting.boardSize.cols) {
-            if (posistion <= i) {
-                return { first: i - (gameSetting.boardSize.cols - 1), last: i };
+    calculateRowBoundary( posistion, gameSetting) {
+
+        let first = posistion - (posistion % gameSetting.boardSize.cols);
+        let last = first + (gameSetting.boardSize.cols - 1);
+
+        return { first: first, last: last };
+
+    }
+
+    checkWinnerByOffset(cells, posistion, gameSetting, boundary, offset) {
+        let cellStreak = [posistion];
+
+        for (let i = posistion; i > boundary.first; i -= offset) {
+            let prePos = i - offset;
+            if (cells[i] == cells[prePos]) {
+                cellStreak.push(prePos);
+            } else {
+                break;
             }
         }
-        return { first: 0, last: gameSetting.boardSize.cols };
+
+        for (let i = posistion; i < boundary.last; i += offset) {
+            let nextPos = i + offset;
+            if (cells[i] == cells[nextPos]) {
+                cellStreak.push(nextPos);
+            } else {
+                break;
+            }
+        }
+
+        if (cellStreak.length >= gameSetting.rules.numberToWin) {
+            return cellStreak;
+        }
+
+        return null;
     }
 
     checkWinnerByRow(cells, posistion, gameSetting) {
-        let rowBoundary = this.calculateRowBoundary(cells, posistion, gameSetting);
-        let rowStreak = [posistion];
+        const offset = 1;
+        const rowBoundary = this.calculateRowBoundary( posistion, gameSetting);
 
-        for (let i = posistion; i > rowBoundary.first; i--) {
-            let prePos = i - 1;
-            if (cells[i] == cells[prePos]) {
-                rowStreak.push(prePos);
-            } else {
-                break;
-            }
-        }
+        return this.checkWinnerByOffset(cells, posistion, gameSetting, rowBoundary, offset);
 
-        for (let i = posistion; i < rowBoundary.last; i++) {
-            let nextPos = i + 1;
-            if (cells[i] == cells[nextPos]) {
-                rowStreak.push(nextPos);
-            } else {
-                break;
-            }
-        }
-
-        if (rowStreak.length >= gameSetting.rules.numberToWin) {
-            return rowStreak;
-        }
-
-        return null;
     }
 
     checkWinnerByColumn(cells, posistion, gameSetting) {
-        let colStreak = [posistion];
+        const offset = gameSetting.boardSize.cols;
+        const boundary = { first: 0, last: cells.length };
 
-        for (let i = posistion; i >= 0; i -= gameSetting.boardSize.cols) {
-            let prePos = i - gameSetting.boardSize.cols;
-            if (cells[i] == cells[prePos]) {
-                colStreak.push(prePos);
-            } else {
-                break;
-            }
-        }
-
-        for (let i = posistion; i <= cells.length; i += gameSetting.boardSize.cols) {
-            let nextPost = i + gameSetting.boardSize.cols;
-            if (cells[i] == cells[nextPost]) {
-                colStreak.push(nextPost);
-            } else {
-                break;
-            }
-        }
-
-        if (colStreak.length >= gameSetting.rules.numberToWin) {
-            return colStreak;
-        }
-
-        return null;
+        return this.checkWinnerByOffset(cells, posistion, gameSetting, boundary, offset);
     }
 
     checkWinnerByRightDiagonal(cells, posistion, gameSetting) {
@@ -71,7 +57,7 @@ class TicTacToeUtility {
         let offset = gameSetting.boardSize.cols - 1;
         for (let i = posistion; i >= 0; i -= offset) {
             let preDiagonalPos = i - offset;
-            let rowBoundary = this.calculateRowBoundary(cells, i, gameSetting);
+            let rowBoundary = this.calculateRowBoundary( i, gameSetting);
             if (cells[i] == cells[preDiagonalPos]
                 && ((i != rowBoundary.last && preDiagonalPos != rowBoundary.first)
                 )) {
@@ -83,7 +69,7 @@ class TicTacToeUtility {
 
         for (let i = posistion; i <= cells.length; i += offset) {
             let nextDiagonalPos = i + offset;
-            let rowBoundary = this.calculateRowBoundary(cells, i, gameSetting);
+            let rowBoundary = this.calculateRowBoundary( i, gameSetting);
             if (cells[i] == cells[i + offset]
                 && ((i != rowBoundary.first && nextDiagonalPos != rowBoundary.last)
                 )) {
@@ -101,31 +87,10 @@ class TicTacToeUtility {
     }
 
     checkWinnerByLeftDiagonal(cells, posistion, gameSetting) {
-        let leftDiagonalStreak = [posistion];
-        let offset = gameSetting.boardSize.cols + 1;
-        for (var i = posistion; i >= 0; i -= offset) {
-            let prePos = i - offset;
-            if (cells[i] == cells[prePos]) {
-                leftDiagonalStreak.push(prePos);
-            } else {
-                break;
-            }
-        }
+        const offset = gameSetting.boardSize.cols + 1;
+        const boundary = { first: 0, last: cells.length };
 
-        for (var i = posistion; i <= cells.length; i += (gameSetting.boardSize.cols + 1)) {
-            let nextPos = i + offset;
-            if (cells[i] == cells[nextPos]) {
-                leftDiagonalStreak.push(nextPos);
-            } else {
-                break;
-            }
-        }
-
-        if (leftDiagonalStreak.length >= gameSetting.rules.numberToWin) {
-            return leftDiagonalStreak;
-        }
-
-        return null;
+        return this.checkWinnerByOffset(cells, posistion, gameSetting, boundary, offset);
     }
 
     checkWinner(cells, stepCount, posistion, gameSetting) {

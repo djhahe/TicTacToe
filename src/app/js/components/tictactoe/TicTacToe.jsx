@@ -6,6 +6,7 @@ import History from './History.jsx';
 import GameStatus from '../result/GameStatus.jsx';
 import Result from '../result/Result.jsx';
 import TicTacToeUtility from '../../utility/tictactoe/TicTacToeUtility.jsx'
+import '../../../image/tictactoeicon.png';
 import '../../../style/tictactoe.scss';
 
 
