@@ -55,24 +55,24 @@ The board was store in a single dimension array with size = (rows * cols) in set
 Array[row * cols]
 
 [0,1,2,
-3,4,5,
-6,7,8]
+ 3,4,5,
+ 6,7,8]
 ```
 
 First **X** move
 
 <pre>
 [0,1,2,
-3,<b>X</b>,5,
-6,7,8]
+ 3,<b>X</b>,5,
+ 6,7,8]
 </pre>
 
 Second **O** move 
 
 <pre>
 [0,1,2,
-3,<b>X</b>,5,
-<b>0</b>,7,8]
+ 3,<b>X</b>,5,
+ <b>0</b>,7,8]
 </pre>
 
 Winner check Algorithm
@@ -81,8 +81,8 @@ Instead of looping all rows, columns, diagonal I start from the current move pos
 
 <pre>
 [<b>0</b>,<b>1</b>,<b>2</b>,
-3,<b>X</b>,5,
-<b>6</b>,<b>7</b>,<b>8</b>]
+ 3,<b>X</b>,5,
+ <b>6</b>,<b>7</b>,<b>8</b>]
 </pre>
 
 ## Demo and deployment
